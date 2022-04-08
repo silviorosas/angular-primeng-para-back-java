@@ -1,0 +1,124 @@
+<p-panel>
+  <div class="enc" [ngStyle]="{backgroundColor:'var(--orange-300)'}" style="border-radius: 6px; margin: 2px; font-size: 18px;">
+    <h4>Región: Valle--//--Sucursal: GRK</h4>
+    <h4>NUEVO CRÉDITO</h4>
+    <h4>Usuario:Silvio Rosas</h4>
+    <h4>Desconectado</h4>
+  </div>
+  <!--div contiene fieldset-->
+  <div class="di">
+    <!--muestra inputs desplegables-->
+    <p-fieldset legend="Parámetros del crédito" [style]="{'backgroundColor':'var(--gray-400)'}">
+      <span>
+        <p-cascadeSelect [(ngModel)]="selectedCity1" [options]="importe" optionLabel="cname"
+          [optionGroupChildren]="['states', 'cities']"
+          [style]="{'minWidth': '8rem','backgroundColor':'var(--blue-100)','margin':'2px'}" placeholder="Importe">
+        </p-cascadeSelect>
+      </span>
+
+      <span>
+        <p-cascadeSelect [(ngModel)]="selectedCity1" [options]="cuotas" optionLabel="cname2"
+          [optionGroupChildren]="['states', 'cities']"
+          [style]="{'minWidth': '8rem', 'backgroundColor':'var(--blue-100)','margin':'2px'}" placeholder="Cuotas">
+        </p-cascadeSelect>
+      </span>
+
+      <span>
+        <p-cascadeSelect [(ngModel)]="selectedCity1" [options]="tplan" optionLabel="cname3"
+          [optionGroupChildren]="['states', 'cities']"
+          [style]="{'minWidth': '8rem', 'backgroundColor':'var(--blue-100)','margin':'2px'}" placeholder="Tipo de Plan">
+        </p-cascadeSelect>
+      </span>
+
+      <span>
+        <p-cascadeSelect [(ngModel)]="selectedCity1" [options]="amort" optionLabel="cname3"
+          [optionGroupChildren]="['states', 'cities']"
+          [style]="{'minWidth': '8rem', 'backgroundColor':'var(--blue-100)','margin':'2px'}" placeholder="Amortización">
+        </p-cascadeSelect>
+      </span>
+      <span class="boton" > <p-button label="Calcular" styleClass="p-button"
+         ></p-button> </span>
+
+    </p-fieldset>
+  </div>
+  <!--div padre de tabla y card-->
+  <div class="padre" >
+    <!--div tabla-->
+    <div class="izq">
+      <!--tabla-->
+      <p-table responsiveLayout="scroll" styleClass="p-datatable-sm"  [resizableColumns]="true" [value]="datos" [rowHover]="true" [paginator]="true" [rows]="5"
+        [scrollable]="true" >
+
+        <ng-template pTemplate="header">
+
+          <tr>
+            <th [ngStyle]="{backgroundColor:'var(--blue-600)'}">N°</th>
+            <th [ngStyle]="{backgroundColor:'var(--blue-600)'}">Ven</th>
+            <th [ngStyle]="{backgroundColor:'var(--blue-600)'}">Saldo</th>
+            <th [ngStyle]="{backgroundColor:'var(--blue-600)'}">Cap</th>
+            <th [ngStyle]="{backgroundColor:'var(--blue-600)'}">Int</th>
+            <th [ngStyle]="{backgroundColor:'var(--blue-600)'}">Ca</th>
+            <th [ngStyle]="{backgroundColor:'var(--blue-600)'}">Total</th>
+            <th [ngStyle]="{backgroundColor:'var(--blue-600)'}">Iva</th>
+            <th [ngStyle]="{backgroundColor:'var(--blue-600)'}">T+Iva</th>
+          </tr>
+
+        </ng-template>
+
+        <ng-template pTemplate="body" let-dato>
+          <tr>
+            <td>{{dato.n}}</td>
+            <td>{{dato.ven}}</td>
+            <td>{{dato.saldo}}</td>
+            <td>{{dato.cap}}</td>
+            <td>{{dato.int}}</td>
+            <td>{{dato.ca}}</td>
+            <td>{{dato.total}}</td>
+            <td>{{dato.iva}}</td>
+            <td>{{dato.tiva}}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+    <!--div card-->
+    <div class="der">
+      
+        <p-fieldset legend="Info del crédito" [style]="{'backgroundColor':'var(--gray-400)'}">
+          <div class="inp">
+            <h4>Valor Cuota:</h4>
+          <input type="text" pInputText class="p-inputtext-sm" >
+        </div> 
+        <div class="inp">
+          <h4>C.Promedio con IVA:</h4>
+          <input type="text" pInputText class="p-inputtext-sm" >
+        </div> 
+        <div class="inp">
+          <h4>TEA:</h4>
+          <input type="text" pInputText class="p-inputtext-sm" >
+        </div> 
+        <div class="inp">
+          <h4>CFT</h4>
+          <input type="text" pInputText class="p-inputtext-sm" >
+        </div> 
+        <div class="inp">
+          <h4>CFT con IVA</h4>
+          <input type="text" pInputText class="p-inputtext-sm" >
+        </div> 
+        <div style="margin-top: 12px;"> <span class="boton" > <p-button label="Clientes" styleClass="p-button"
+          ></p-button> </span></div>
+    
+        </p-fieldset>
+      
+    </div>
+  </div>
+
+  <footer>
+    <div  [style]="{'backgroundColor':'var(--blue-600)','border-radius':'8px','color':'white'}" >
+      <div class="flex justify-content-between mr-4 ml-4">
+        <p>CASA MATRIZ -- RESPONSABLE GENERAL</p>
+        <p>SISTEMA DAIRA 2022</p>
+      </div>
+    </div>
+  </footer>
+
+</p-panel>
