@@ -16,6 +16,8 @@ export class AppComponent {
   selectedCity1: any;
 
   selectedCity2: any;
+
+  distritoJudicial: any[]=[];
   
   datos: any = []
   constructor(){
@@ -95,6 +97,37 @@ this.amort = [
                 
 },    
 ];
+
+
+
+this.distritoJudicial = [
+  {
+      name: 'Distrito Judicial',
+    
+      fueros: [
+          {
+              name: 'Federal',
+              fedOrd: [
+                  {cname: 'FCR'},
+                  {cname: 'Juzgados'},
+                 
+              ]
+          },
+          {
+              name: 'Ordinario',
+              fedOrd: [
+                  {cname: 'Sur'},
+                  {cname: 'Norte'}
+              ]
+          },
+          
+      ]
+  },     
+  
+]
+
+
+
 
 }
 

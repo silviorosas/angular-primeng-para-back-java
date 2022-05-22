@@ -1,3 +1,7 @@
+
+<app-producto></app-producto>
+
+<!--
 <p-panel>
   <div class="enc" [ngStyle]="{backgroundColor:'var(--orange-300)'}" style="border-radius: 6px; margin: 2px; font-size: 18px;">
     <h4>Región: Valle--//--Sucursal: GRK</h4>
@@ -5,9 +9,9 @@
     <h4>Usuario:Silvio Rosas</h4>
     <h4>Desconectado</h4>
   </div>
-  <!--div contiene fieldset-->
+  <!--div contiene fieldset
   <div class="di">
-    <!--muestra inputs desplegables-->
+    <!--muestra inputs desplegables
     <p-fieldset legend="Parámetros del crédito" [style]="{'backgroundColor':'var(--gray-400)'}">
       <span>
         <p-cascadeSelect [(ngModel)]="selectedCity1" [options]="importe" optionLabel="cname"
@@ -36,16 +40,25 @@
           [style]="{'minWidth': '8rem', 'backgroundColor':'var(--blue-100)','margin':'2px'}" placeholder="Amortización">
         </p-cascadeSelect>
       </span>
+
+      
+        <span >
+            <p-cascadeSelect  [options]="distritoJudicial" optionLabel="cname" optionGroupLabel="name" 
+                [optionGroupChildren]="['fueros', 'fedOrd']"  [style]="{'minWidth': '8rem', 'backgroundColor':'var(--blue-100)','margin':'2px'}" placeholder="Distrito Judicial"></p-cascadeSelect>
+            <label for="cascadeSelect"></label>
+        </span>
+      
       <span class="boton" > <p-button label="Calcular" styleClass="p-button"
          ></p-button> </span>
 
     </p-fieldset>
   </div>
-  <!--div padre de tabla y card-->
+  <!--div padre de tabla y card
   <div class="padre" >
-    <!--div tabla-->
+    div tabla
     <div class="izq">
-      <!--tabla-->
+    -->
+      <!--tabla
       <p-table responsiveLayout="scroll" styleClass="p-datatable-sm"  [resizableColumns]="true" [value]="datos" [rowHover]="true" [paginator]="true" [rows]="5"
         [scrollable]="true" >
 
@@ -80,7 +93,7 @@
         </ng-template>
       </p-table>
     </div>
-    <!--div card-->
+    <!--div card
     <div class="der">
       
         <p-fieldset legend="Info del crédito" [style]="{'backgroundColor':'var(--gray-400)'}">
@@ -122,3 +135,6 @@
   </footer>
 
 </p-panel>
+-->
+
+

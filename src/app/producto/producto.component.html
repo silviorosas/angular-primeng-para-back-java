@@ -1,0 +1,73 @@
+
+<div class="ui-g">
+  <!-- toast muestra mje de agregado correctamente-->
+  <p-toast></p-toast> 
+ <p-panel header="Lista de productos" [style]="{width: '70%',margin:'0 auto'}">
+   <!--menu-->
+   <div style="margin-bottom:20px ;">
+   <p-menubar [model]="items"></p-menubar>
+   </div>
+    <!--tabla-->
+      <p-table responsiveLayout="scroll" [value]="productos"  [rowHover]="true" [paginator]="true" 
+      [rows]="5"  [scrollable]="true" >
+
+        <ng-template pTemplate="header">
+
+          <tr>
+            <th [ngStyle]="{backgroundColor:'var(--blue-200)'}">Id</th>
+            <th [ngStyle]="{backgroundColor:'var(--blue-200)'}">Nombre</th>
+            <th [ngStyle]="{backgroundColor:'var(--blue-200)'}">Descripción</th>
+            <th [ngStyle]="{backgroundColor:'var(--blue-200)'}">Precio</th>           
+          </tr>
+
+        </ng-template>
+
+        <ng-template pTemplate="body" let-producto>
+          <tr>
+            <td>{{producto.id}}</td>
+            <td>{{producto.nombre}}</td>
+            <td>{{producto.descripcion}}</td>
+            <td>{{producto.precio}}</td>            
+          </tr>
+        </ng-template>
+      </p-table>
+ </p-panel>
+ <!--dialog o modal aparece cuando click en boton del menu
+    display es para cuando hago click en nuevo aparezca el modal y modal true se ve mejor-->
+ <p-dialog header="Agregar producto" [responsive]="true" [style]="{width:'400px'}" [(visible)]="display" [modal]="true">
+   
+  <div class="ui-g ui-fluid" >
+   
+    <div class="ui-g-12">
+        <div class="ui-g-4">
+            <label for="nombre">Nombre</label>
+        </div>
+        <div class="ui-g-8">
+            <input pInputText id="nombre" [style]="{width:'350px'}" [(ngModel)]="producto.nombre"/>
+        </div>
+    </div>
+    <div class="ui-g-12">
+        <div class="ui-g-4">
+            <label for="descripcion">Descripción</label>
+        </div>
+        <div class="ui-g-8">
+            <input pInputText id="descripcion" [style]="{width:'350px'}" [(ngModel)]="producto.descripcion" />
+        </div>
+    </div>
+    <div class="ui-g-12">
+        <div class="ui-g-4">
+            <label for="precio">Precio</label>
+        </div>
+        <div class="ui-g-8">
+            <input pInputText id="precio" [style]="{width:'350px'}" [(ngModel)]="producto.precio" />
+        </div>
+    </div>
+</div>
+<!--boton-->
+<p-footer>
+  <div class="ui-dialog-buttonpane ui-helper-clearfix">
+    <button type="button" pButton icon="pi pi-check" (click)="save()" label="Guardar"></button>
+  </div>
+</p-footer>
+</p-dialog>
+</div>
