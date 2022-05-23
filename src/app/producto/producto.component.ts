@@ -71,6 +71,7 @@ export class ProductoComponent implements OnInit {
         (res:any)=>{
          let producto= res as Producto;    
        this.validarProducto(producto);
+       this.traerProductos();
        console.log(this.productos);
         })       
        //envia mje de agregado
@@ -91,6 +92,7 @@ export class ProductoComponent implements OnInit {
               (result:any)=>{
                 this.messageService.add({severity:'success', summary:'Service Message', detail:'Producto eliminado correctamente'});    
                 this.validarDelete(result.id);
+
                 
               }
             )
@@ -102,6 +104,7 @@ export class ProductoComponent implements OnInit {
         let index = this.productos.findIndex((e)=> e.id == id);
         if(index != -1){
           this.productos.slice(index,1);
+          this.traerProductos();
           
         }
       }
