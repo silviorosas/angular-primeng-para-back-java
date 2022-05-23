@@ -19,6 +19,8 @@ import {MenubarModule} from 'primeng/menubar';
 import {DialogModule} from 'primeng/dialog';
 import {ToastModule} from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {ConfirmationService} from 'primeng/api';
 
 
 
@@ -45,11 +47,16 @@ import { MessageService } from 'primeng/api';
     HttpClientModule,
     MenubarModule,
     DialogModule,
-    ToastModule
+    ToastModule,
+    ConfirmDialogModule
    
 
   ],
-  providers: [MessageService],
+  providers: [
+    MessageService,
+    ConfirmationService
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

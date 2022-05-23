@@ -17,11 +17,12 @@ export class ProductoService {
     return this.http.get(this.url + "/all");
   }
 
-  save(producto:Producto):Observable<any>{
-    return this.http.post(this.url + "/save",JSON.stringify(producto));
-  }
-
+ 
   nuevoProducto(datos:any){
     return this.http.post(`${this.url}/save`, datos);
+    }
+    
+    delete(id:number):Observable<any>{
+      return this.http.delete(this.url + "/delete/"+id);
     }
 }

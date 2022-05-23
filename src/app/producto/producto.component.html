@@ -2,14 +2,17 @@
 <div class="ui-g">
   <!-- toast muestra mje de agregado correctamente-->
   <p-toast></p-toast> 
+  <!--mje confirmar delete producto-->
+  <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>  
+
  <p-panel header="Lista de productos" [style]="{width: '70%',margin:'0 auto'}">
    <!--menu-->
    <div style="margin-bottom:20px ;">
    <p-menubar [model]="items"></p-menubar>
    </div>
-    <!--tabla-->
-      <p-table responsiveLayout="scroll" [value]="productos"  [rowHover]="true" [paginator]="true" 
-      [rows]="5"  [scrollable]="true" >
+    <!--tabla selectionMode="single" [(selection)]="selectProducto" datakey son para editar producto -->
+      <p-table responsiveLayout="scroll" [value]="productos" selectionMode="single" [(selection)]="selectProducto" dataKey="id" [rowHover]="true" 
+      [paginator]="true" [rows]="5"  [scrollable]="true" >
 
         <ng-template pTemplate="header">
 
@@ -23,7 +26,7 @@
         </ng-template>
 
         <ng-template pTemplate="body" let-producto>
-          <tr>
+          <tr [pSelectableRow]="producto">
             <td>{{producto.id}}</td>
             <td>{{producto.nombre}}</td>
             <td>{{producto.descripcion}}</td>
@@ -34,7 +37,7 @@
  </p-panel>
  <!--dialog o modal aparece cuando click en boton del menu
     display es para cuando hago click en nuevo aparezca el modal y modal true se ve mejor-->
- <p-dialog header="Agregar producto" [responsive]="true" [style]="{width:'400px'}" [(visible)]="display" [modal]="true">
+ <p-dialog header="Producto" [responsive]="true" [style]="{width:'400px'}" [(visible)]="display" [modal]="true">
    
   <div class="ui-g ui-fluid" >
    
